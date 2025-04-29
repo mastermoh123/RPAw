@@ -120,7 +120,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="prueba" sap:VirtualizedContainerService.HintSize="1276,1041" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="prueba" sap:VirtualizedContainerService.HintSize="1276,1010" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="out" />
       <Variable x:TypeArguments="x:Int32" Name="cont" />
@@ -226,16 +226,16 @@
         <InArgument x:TypeArguments="x:String">Buenas tardes, Estoy interesado en adotar un perrro macho y k sea un cachorro. No nos importa que sea una raza de perro grande o pekeño. Gracias y espero su respuesta.</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[cont &lt; 11]" DisplayName="While" sap:VirtualizedContainerService.HintSize="470,847" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+    <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[cont &lt; 11]" DisplayName="While" sap:VirtualizedContainerService.HintSize="470,816" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
       <ui:InterruptibleWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,726" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,695" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Delay Duration="00:00:11" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
-          <isactr:ConnectorActivity Configuration="H4sIAAAAAAAACp1VXU8aQRT9K5N9xq20ViuJD7KUloqFCNqkjTHj7mWZssxsZ+6gSPjvvTMsuLBY28YHmfvFOed+sAjaArLEREoiFxJ00FgEA+A6HvP7DFbOoPHjthZ0ZG5xY1gEX/kUgkYwVQlkQS1oCZNnfF5YL52ViQQkipGgshQAJtYiR6EkBQzHUHIzNWJIFl+MWQMJGyntTbGa5hm4rJCKDOe5K29QC5nSe6A09nTicL+tBV2lJjZ3FHr3PyHGMkQTrP03PLPOLBIy9TmO6fObnRiX6Wi6oNulBy9Swr0gP0+a8xaMuM0waKC2QFWUEQWxvhZTrucBJXmxzmPnKDS8ApPTA9Z5V/DLCg3J+u0zuirmRbGmSlyljdi5JjWwonbfmxnCI1aE9m1jqJyqXlTqLJZUZZowgME94v4X6b+jRFr0LO4dqC8C7xzGaAOxwjequLcoP1O5Fq6/YUcipNojGICeiRhC15YZwQcTDr59pDH0H6PWu/ftkw+np6fRDoa7SANHCJtWJhmEe501ti8/NMnD8Ht7+CRb9fSYf7quJ/LkosZuQBvKPauHh+6Pkklbq+FMgkXNsxrr2/tMxBcwH6oJyDNpM7doV0W/GiOeGajO1K7gK50psScjLmfcrAM7hqT20StLac7Wk7Sl+nDfeLnDQVvMRjSCbAYyUfpfJ2n5Oqf1O7LUxZdn6wWqS7fBHWmQyxj6XBMdJPEdnKIJlOvbQKlESNLpUJp0J7MVOU3QgcpBclH8m9X9+ggu3XcVkzQvOK8h1rZvUGWiPyPml4BjRWzcKqFbnojHY0hKZ8qDXJ1YtyIdF5zmeHCkDqZCiuceRSqzU39mtvy0ZwPfhLbSU467wUGlyeVkr9sKUlOrBwO6gzB1kMherDypVNy2Po8nPIWyovWjbUmL7+iRiucddlNnXhGnI+t2L8uRW1XC442ar9yBP0tO37s6Ai7Vb2ylD73BsPSjUKnQ5TK1RJKc4N6X/LFPz4F4IlP98JDKcdOk0hOSnNDJ1HWwGGq3P81MxRMv2PI3uwzOlnsHAAA=" ConnectionId="57cfac27-b20b-4aa9-bf39-64f8266a34ca" DisplayName="Generate Chat Completion" sap:VirtualizedContainerService.HintSize="434,266" sap2010:WorkflowViewState.IdRef="ConnectorActivity_3" UiPathActivityTypeId="54bc5239-cc33-383d-a24d-2d56d996b4cc">
+          <Delay Duration="00:00:12" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="Delay_1" />
+          <isactr:ConnectorActivity Configuration="H4sIAAAAAAAACp1VXU8aQRT9K5N9xq20ViuJD7KUloqFCNqkjTHj7mWZssxsZ+6gSPjvvTMsuLBY28YHmfvFOed+sAjaArLEREoiFxJ00FgEA+A6HvP7DFbOoPHjthZ0ZG5xY1gEX/kUgkYwVQlkQS1oCZNnfF5YL52ViQQkipGgshQAJtYiR6EkBQzHUHIzNWJIFl+MWQMJGyntTbGa5hm4rJCKDOe5K29QC5nSe6A09nTicL+tBV2lJjZ3FHr3PyHGMkQTrP03PLPOLBIy9TmO6fObnRiX6Wi6oNulBy9Swr0gP0+a8xaMuM0waKC2QFWUEQWxvhZTrucBJXmxzmPnKDS8ApPTA9Z5V/DLCg3J+u0zuirmRbGmSlyljdi5JjWwonbfmxnCI1aE9m1jqJyqXlTqLJZUZZowgME94v4X6b+jRFr0LO4dqC8C7xzGaAOxwjequLcoP1O5Fq6/YUcipNojGICeiRhC15YZwQcTDr59pDH0H6PWu/ftkw+np6fRDoa7SANHCJtWJhmEe501ti8/NMnD8Ht7+CRb9fSYf7quJ/LkosZuQBvKPauHh+6Pkklbq+FMgkXNsxrr2/tMxBcwH6oJyDNpM7doV0W/GiOeGajO1K7gK50psScjLmfcrAM7hqT20StLac7Wk7Sl+nDfeLnDQVvMRjSCbAYyUfpfJ2n5Oqf1O7LUxZdn6wWqS7fBHWmQyxj6XBMdJPEdnKIJlOvbQKlESNLpUJp0J7MVOU3QgcpBclH8m9X9+ggu3XcVkzQvOK8h1rZvUGWiPyPml4BjRWzcKqFbnojHY0hKZ8qDXJ1YtyIdF5zmeHCkDqZCiuceRSqzU39mtvy0ZwPfhLbSU467wUGlyeVkr9sKUlOrBwO6gzB1kMherDypVNy2Po8nPIWyovWjbUmL7+iRiucddlNnXhGnI+t2L8uRW1XC442ar9yBP0tO37s6Ai7Vb2ylD73BsPSjUKnQ5TK1RJKc4N6X/LFPz4F4IlP98JDKcdOk0hOSnNDJ1HWwGGq3P81MxRMv2PI3uwzOlnsHAAA=" ConnectionId="57cfac27-b20b-4aa9-bf39-64f8266a34ca" DisplayName="Generate Chat Completion" sap:VirtualizedContainerService.HintSize="434,235" sap2010:WorkflowViewState.IdRef="ConnectorActivity_3" UiPathActivityTypeId="54bc5239-cc33-383d-a24d-2d56d996b4cc">
             <isactr:ConnectorActivity.FieldObjects>
               <isactr:FieldObject Name="model" Type="FieldArgument">
                 <isactr:FieldObject.Value>
