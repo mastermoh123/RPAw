@@ -107,7 +107,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1203,780.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="RPAw&#xA;Automatización del proceso de adopción de mascotas en la web Arca de No" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1023,474.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -240,7 +240,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="516,2838" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="240,183" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="470,2351" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
@@ -675,7 +675,7 @@
                                   </Sequence>
                                 </If.Else>
                               </If>
-                              <ui:Comment sap:VirtualizedContainerService.HintSize="472,340" sap2010:WorkflowViewState.IdRef="Comment_6" Text="Normalmente hacemos login. En algunos casos por comodidad se hace en el Process. En caso de que hagais el login aquí necesariamente habrá una business por si las credenciales son incorrectas. En caso de de que se de, lo ideal es finalizar la ejecución. Por ello he creado una business que se va a evaluar como transición y va a llevarnos al End Process. Allí tendreis vuestro módulo de gestión de business exception, donde solo gestionareis las excepciones que vengan del Init. Las que se den en el Process se gestionarán allí. Ya está preparado para que lo haga así. &#xD;&#xA;" />
+                              <ui:Comment sap:VirtualizedContainerService.HintSize="472,340" sap2010:WorkflowViewState.IdRef="Comment_6" Text="Normalmente hacemos login. En algunos casos por comodidad se hace en el Process. En caso de que hagais el login aquí necesariamente habrá una business por si las credenciales son incorrectas. En caso de de que se de, lo ideal es finalizar la ejecución. Por ello he creado una business que se va a evaluar como transición y va a llevarnos al End Process. Allí tendreis vuestro módulo de gestión de business exception, donde solo gestionareis las excepciones que vengan del Init. Las que se den en el Process se gestionarán allí. Ya está preparado para que lo haga así. &#xA;" />
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="472,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
@@ -879,9 +879,7 @@
                           <Transition.Action>
                             <ui:Comment DisplayName="Comment (default transition)" sap:VirtualizedContainerService.HintSize="407,76" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Default transition is picked up if there are no errors during initialization" />
                           </Transition.Action>
-                          <Transition.Condition>
-                            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="SystemException is Nothing And BusinessExceptionInit Is Nothing" />
-                          </Transition.Condition>
+                          <Transition.Condition>[SystemException is Nothing And BusinessExceptionInit Is Nothing]</Transition.Condition>
                         </Transition>
                         <Transition DisplayName="BusinessExceptionInit" sap:VirtualizedContainerService.HintSize="450,488" sap2010:WorkflowViewState.IdRef="Transition_9">
                           <sap:WorkflowViewStateService.ViewState>
@@ -894,9 +892,7 @@
                           <Transition.To>
                             <x:Reference>__ReferenceID1</x:Reference>
                           </Transition.To>
-                          <Transition.Condition>
-                            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="BusinessExceptionInit IsNot Nothing" />
-                          </Transition.Condition>
+                          <Transition.Condition>[BusinessExceptionInit IsNot Nothing]</Transition.Condition>
                         </Transition>
                       </State.Transitions>
                     </State>
