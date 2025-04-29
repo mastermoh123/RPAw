@@ -107,7 +107,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LeerCorreosGmail" sap:VirtualizedContainerService.HintSize="1006,1276" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LeerCorreosGmail" sap:VirtualizedContainerService.HintSize="1006,1406" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strAsunto" />
       <Variable x:TypeArguments="x:String" Name="strCuerpo" />
@@ -119,7 +119,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Recuperación de emails de Gmail" sap:VirtualizedContainerService.HintSize="504,1253" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="En este módulo de realiza login en la cuenta de Gmail que se ha definido como asset &quot;CorreosGmail&quot; en el orquestador. Dicho login, se lleva a cabo por medio de una contraseña de aplicación.&#xD;&#xA;Posteriormente crea un datatable para almacenar el contenido esos correos (los diez últimos recibidos) y finalmente, se suben a la cola &quot;CorreosGmail&quot; que se ha definido en el orquestador y que se recupera en el fichero de configuación &quot;Config,xlsx&quot;." DisplayName="Recuperación de emails de Gmail" sap:VirtualizedContainerService.HintSize="504,1383" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strUsername" />
         <Variable x:TypeArguments="ss:SecureString" Name="strPassword" />
@@ -128,6 +128,7 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="CorreosGmail" CacheStrategy="None" DisplayName="Get Credential" FolderPath="grupodeadpoolgeneration@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="470,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[strPassword]" Username="[strUsername]" />
