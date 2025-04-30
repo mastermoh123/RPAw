@@ -109,7 +109,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="CredencialesChatGPT" CacheStrategy="None" DisplayName="Get Credential" FolderPath="grupodeadpoolgeneration@gmail.com's workspace" sap:VirtualizedContainerService.HintSize="554,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[sec_contraseña]" Username="[srt_usuario]" />
-      <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser 'Web ChatGPT - Login'" sap:VirtualizedContainerService.HintSize="554,1176" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="False" UiBrowser="[out_bro_ChatGPT]" Url="[InConfig(&quot;URLChatGPT&quot;).ToString]">
+      <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser 'Web ChatGPT - Login'" sap:VirtualizedContainerService.HintSize="554,1176" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="False" UiBrowser="[out_bro_ChatGPT]" Url="https://chatgpt.com/es">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
