@@ -102,11 +102,10 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AccesoChatGPT - Invoke Workflow File (Modules\AccesoChatGPT.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\AccesoChatGPT_v2.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AccesoChatGPT - Invoke Workflow File (Modules\AccesoChatGPT.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\LoginChatGPT.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_str_URLChatGPT">[in_Config("URLChatGPT").ToString]</InArgument>
           <OutArgument x:TypeArguments="ui:Browser" x:Key="out_bro_AccesoChatGPT">[out_bro_AccesoChatGPT]</OutArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="in_Config" />
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
