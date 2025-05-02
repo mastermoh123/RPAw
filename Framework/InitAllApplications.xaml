@@ -106,6 +106,7 @@
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_str_URLChatGPT">[in_Config("URLChatGPT").ToString]</InArgument>
           <OutArgument x:TypeArguments="ui:Browser" x:Key="out_bro_AccesoChatGPT">[out_bro_AccesoChatGPT]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_str_SL01">[in_Config("SL01").ToString]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
