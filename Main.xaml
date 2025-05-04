@@ -46,6 +46,7 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -105,6 +106,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="RPAw&#xA;Automatización del proceso de adopción de mascotas en la web Arca de Noé" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="946,491.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -269,7 +271,9 @@
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                          <InArgument x:TypeArguments="ui:Browser" x:Key="in_AccesoChatGPT">[bro_AccesoChatGPT]</InArgument>
+                          <InArgument x:TypeArguments="ui:Browser" x:Key="in_broAccesoChatGPT">[bro_AccesoChatGPT]</InArgument>
+                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_intContador">[int_contador]</InOutArgument>
+                          <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_bro_ArcadeNoe">[bro_accesoArcadeNoe]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="TryCatch_10">
@@ -679,8 +683,9 @@
                               <ui:Comment sap:VirtualizedContainerService.HintSize="472,340" sap2010:WorkflowViewState.IdRef="Comment_6" Text="Normalmente hacemos login. En algunos casos por comodidad se hace en el Process. En caso de que hagais el login aquí necesariamente habrá una business por si las credenciales son incorrectas. En caso de de que se de, lo ideal es finalizar la ejecución. Por ello he creado una business que se va a evaluar como transición y va a llevarnos al End Process. Allí tendreis vuestro módulo de gestión de business exception, donde solo gestionareis las excepciones que vengan del Init. Las que se den en el Process se gestionarán allí. Ya está preparado para que lo haga así. &#xA;" />
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="472,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <OutArgument x:TypeArguments="ui:Browser" x:Key="out_bro_AccesoChatGPT">[bro_AccesoChatGPT]</OutArgument>
                                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                                  <OutArgument x:TypeArguments="ui:Browser" x:Key="out_bro_accesoChatGPT">[bro_accesoChatGPT]</OutArgument>
+                                  <OutArgument x:TypeArguments="ui:Browser" x:Key="out_bro_ArcadeNoe">[bro_accesoArcadeNoe]</OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>
@@ -769,14 +774,14 @@
                           <Transition.To>
                             <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="200,102" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <Sequence sap:VirtualizedContainerService.HintSize="454,2333" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                <Sequence sap:VirtualizedContainerService.HintSize="454,2330" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:Comment sap:VirtualizedContainerService.HintSize="420,205" sap2010:WorkflowViewState.IdRef="Comment_7" Text="SE CIERRAN LOS APLICATIVOS&#xA;&#xA;PUEDE SER: &#xA;&#xA;- LOGOUT Y CIERRE CON CLOSE TAB&#xA;&#xA;- CERRAR LA APLICACION CON CLOSE APPLICATION " />
-                                  <ui:Comment sap:VirtualizedContainerService.HintSize="420,146" sap2010:WorkflowViewState.IdRef="Comment_11" Text="Gestionamos business de Init. Al modulo de gestión de business le pasamos como argumento la variable BusinessExceptionInit, no la general." />
+                                  <ui:Comment sap:VirtualizedContainerService.HintSize="420,203" sap2010:WorkflowViewState.IdRef="Comment_7" Text="SE CIERRAN LOS APLICATIVOS&#xA;&#xA;PUEDE SER: &#xA;&#xA;- LOGOUT Y CIERRE CON CLOSE TAB&#xA;&#xA;- CERRAR LA APLICACION CON CLOSE APPLICATION " />
+                                  <ui:Comment sap:VirtualizedContainerService.HintSize="420,145" sap2010:WorkflowViewState.IdRef="Comment_11" Text="Gestionamos business de Init. Al modulo de gestión de business le pasamos como argumento la variable BusinessExceptionInit, no la general." />
                                   <If Condition="[BusinessExceptionInit is Nothing]" sap:VirtualizedContainerService.HintSize="420,457" sap2010:WorkflowViewState.IdRef="If_15">
                                     <If.Then>
                                       <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,91" sap2010:WorkflowViewState.IdRef="Sequence_44">
@@ -884,7 +889,9 @@
                           <Transition.Action>
                             <ui:LogMessage DisplayName="Log Message (initialization failure)" sap:VirtualizedContainerService.HintSize="347,141" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Error" Message="[&quot;System exception at initialization: &quot; + SystemException.Message + &quot; at Source: &quot; + SystemException.Source]" />
                           </Transition.Action>
-                          <Transition.Condition>[SystemException isNot Nothing]</Transition.Condition>
+                          <Transition.Condition>
+                            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException isNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                          </Transition.Condition>
                         </Transition>
                         <Transition DisplayName="Successful" sap:VirtualizedContainerService.HintSize="510,488" sap2010:WorkflowViewState.IdRef="Transition_2">
                           <sap:WorkflowViewStateService.ViewState>
@@ -994,7 +1001,9 @@
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="Used in case transactions are stored in a DataTable, for example, after being retrieved from a spreadsheet." Name="dt_TransactionData" />
       <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of consecutive system exceptions." Default="0" Name="ConsecutiveSystemExceptions" />
       <Variable x:TypeArguments="ui:BusinessRuleException" Name="BusinessExceptionInit" />
-      <Variable x:TypeArguments="ui:Browser" Name="bro_AccesoChatGPT" />
+      <Variable x:TypeArguments="ui:Browser" Name="bro_accesoChatGPT" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="int_contador" />
+      <Variable x:TypeArguments="ui:Browser" Name="bro_accesoArcadeNoe" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
