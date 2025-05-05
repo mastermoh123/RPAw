@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Arca de Noé - Gatos en Adopción",
+  "Type": "Screen",
+  "Id": "da4jkZ7fak6Yd2VgKrUCpw",
+  "Reference": "bA7jbHH3lkmgtkDlCZaz9w/da4jkZ7fak6Yd2VgKrUCpw",
+  "ParentRef": "bA7jbHH3lkmgtkDlCZaz9w/F7tbWXVWok2wtEaAiPmIXQ",
+  "Created": "2025-05-05T14:07:13.4470585Z",
+  "Updated": "2025-05-05T14:07:13.4470585Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.2.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

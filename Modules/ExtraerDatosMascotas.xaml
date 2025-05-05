@@ -1,8 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="ExtraerDatosMascotas" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="datosMascotas" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="io_bro_ArcadeNoe" Type="InOutArgument(ui:Browser)" />
-    <x:Property Name="in_dic_filtrosBusqueda" Type="InArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -109,261 +107,368 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="941,2966" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="1023,4106" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="606,2943" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="Módulo que extrae los datos de las mascotas coincidentes con los filtros especificados en la búsqueda, los almacena en un DataTable y posteriormente los escribe en un excel." DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="617,4083" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Name="count" />
-        <Variable x:TypeArguments="x:String" Name="listaMascotas" />
-        <Variable x:TypeArguments="scg:List(x:String)" Name="TarjetasDatos" />
-        <Variable x:TypeArguments="x:Int32" Default="1" Name="contador" />
-        <Variable x:TypeArguments="x:String" Name="nombre" />
-        <Variable x:TypeArguments="x:String" Name="sexo" />
-        <Variable x:TypeArguments="x:String" Name="raza" />
-        <Variable x:TypeArguments="x:String" Name="edad" />
-        <Variable x:TypeArguments="x:String" Name="tamaño" />
-        <Variable x:TypeArguments="x:String" Name="historia" />
-        <Variable x:TypeArguments="x:String" Name="enlace" />
+        <Variable x:TypeArguments="x:Int32" Name="int_count" />
+        <Variable x:TypeArguments="x:String" Name="str_listaMascotas" />
+        <Variable x:TypeArguments="scg:List(x:String)" Name="lst_tarjetasDatos" />
+        <Variable x:TypeArguments="x:Int32" Default="1" Name="int_contador" />
+        <Variable x:TypeArguments="x:String" Name="str_nombre" />
+        <Variable x:TypeArguments="x:String" Name="str_sexo" />
+        <Variable x:TypeArguments="x:String" Name="str_raza" />
+        <Variable x:TypeArguments="x:String" Name="str_edad" />
+        <Variable x:TypeArguments="x:String" Name="str_tamaño" />
+        <Variable x:TypeArguments="x:String" Name="str_historia" />
+        <Variable x:TypeArguments="x:String" Name="str_enlace" />
+        <Variable x:TypeArguments="sd:DataTable" Name="dt_datosMascotas" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BuildDataTable DataTable="[datosMascotas]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="572,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Nombre&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Sexo&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Raza&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Edad&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tamaño&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Historia&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Enlace&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-      <Sequence sap:VirtualizedContainerService.HintSize="572,2768" sap2010:WorkflowViewState.IdRef="Sequence_6">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_bro_ArcadeNoe]" BrowserType="Chrome" DisplayName="Attach Browser 'Arca de Noé'" sap:VirtualizedContainerService.HintSize="538,2685" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a0f2e3301b97a3a9b41ddf2fe0ef7a46" UiBrowser="[io_bro_ArcadeNoe]">
-          <ui:BrowserScope.Body>
-            <ActivityAction x:TypeArguments="x:Object">
-              <ActivityAction.Argument>
-                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-              </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="504,2515" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:Boolean" Name="boo_sinmascotas" />
-                </Sequence.Variables>
+      <ui:BuildDataTable DataTable="[dt_datosMascotas]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="583,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Nombre&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Sexo&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Raza&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Edad&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tamaño&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Historia&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Enlace&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+      <ui:BrowserScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_bro_ArcadeNoe]" BrowserType="Chrome" DisplayName="Attach Browser 'Arca de Noé'" sap:VirtualizedContainerService.HintSize="583,3866" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ed1caa3781f8e02fd53818a3cb7fde0a" Selector="&lt;html app='chrome.exe' /&gt;" UiBrowser="[io_bro_ArcadeNoe]">
+        <ui:BrowserScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="549,3696" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="boo_sinmascotas" />
+                <Variable x:TypeArguments="x:String" Name="str_extraccionDatos" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="515,57" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
+              <Assign sap:VirtualizedContainerService.HintSize="515,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[int_contador]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="515,3041" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                <ui:InterruptibleWhile.Body>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="513,2911" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="str_idMascota" />
+                      <Variable x:TypeArguments="x:String" Name="str_selectorMascota" />
+                      <Variable x:TypeArguments="x:String" Name="strTotalMascotas" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="En cada iteración, limpiamos el contenido de las variables." DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[str_nombre]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[str_sexo]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[str_raza]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[str_edad]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[str_tamaño]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[str_historia]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:MultipleAssign>
+                    <Sequence sap2010:Annotation.AnnotationText="Comprobamos el nº de mascotas obtenidas: 1 o más y en base a ese criterio constuimos un selector dinámico." DisplayName="Comprobación selector dinámico (total resultados mascotas)" sap:VirtualizedContainerService.HintSize="479,239" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Total de resultados'" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="GetAttribute_12">
+                        <ui:GetAttribute.Result>
+                          <OutArgument x:TypeArguments="x:String">[strTotalMascotas]</OutArgument>
+                        </ui:GetAttribute.Result>
+                        <ui:GetAttribute.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cce3df42-4780-4eda-b899-8a170be1505e" InformativeScreenshot="7eabf1f437816924d1b9064a07305941" Selector="&lt;webctrl class='paginacion_info' tag='P' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:GetAttribute.Target>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:GetAttribute>
+                      <If Condition="[not strTotalMascotas.Trim.Equals(&quot;&quot;) and strTotalMascotas.ToLower.Contains(&quot;total de 1&quot;)]" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="If_2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_8">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[str_selectorMascota]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">&lt;webctrl aria-role='button' tag='A' /&gt;</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_9">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[str_selectorMascota]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">["&lt;webctrl aria-role='button' tag='A' idx='" &amp; int_contador &amp;"' /&gt;"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="2000" DisplayName="Click 'Botón Ver Mascota'" sap:VirtualizedContainerService.HintSize="479,139" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4eac3f75-cee9-4ce2-8964-ad104b6abe97" InformativeScreenshot="31c8cc2eb62485adf32100674686b500" Selector="[str_selectorMascota]" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Nombre'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_5">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_nombre]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="36dbf32b-5753-4abe-8b55-c8165db7c84a" InformativeScreenshot="ee4cf6592c4295589dfbdb145f04dff6" Selector="&lt;webctrl parentid='ficha_animal' parentclass='ficha_nombre' idx='2' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Sexo'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_6">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_sexo]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="77f2733f-5fdc-4b32-9a03-8b58e22cd4e0" InformativeScreenshot="7f043d572440290887a234bc95e712d0" Selector="&lt;webctrl parentid='ficha_animal' parentclass='ficha_sexo' idx='2' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Raza'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_7">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_raza]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e15eef8e-5915-48e2-bd25-de2ef4a19f2f" InformativeScreenshot="58de09726d8cd7b65b843298d54312e0" Selector="&lt;webctrl parentid='ficha_animal' parentclass='ficha_raza' idx='2' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Edad'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_8">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_edad]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87479598-14c8-412a-b450-c4296d873d25" InformativeScreenshot="b3a9bdb7b76f177782b8a1bb920185fc" Selector="&lt;webctrl parentid='ficha_animal' parentclass='ficha_edad' idx='2' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Tamaño'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_9">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_tamaño]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b5370e11-cff7-4cc8-9168-b1f8faf6b106" InformativeScreenshot="1d05b2a13bb91c5bc143e2861308979b" Selector="&lt;webctrl parentid='ficha_animal' parentclass='ficha_tamanio' idx='2' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Historia'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_10">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_historia]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c20fc1ad-0cb1-43e1-928f-ef1565055e78" InformativeScreenshot="7dd957a34588fad8b72ddf227475293f" Selector="&lt;webctrl parentid='ficha_animal' tag='DIV' parentclass='descripcion ficha_descripcion mt-4' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innertext" DisplayName="Get Attribute 'Id mascota'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
+                      <ui:GetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[str_idMascota]</OutArgument>
+                      </ui:GetAttribute.Result>
+                      <ui:GetAttribute.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c0026ec0-1779-4698-9ce9-01a2edacd3e1" InformativeScreenshot="b82be2ac82b4e6d969ecba9e3c5a422a" Selector="&lt;webctrl parentid='ficha_animal' parentclass='ficha_id' idx='2' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:GetAttribute.Target>
+                    </ui:GetAttribute>
+                    <Assign sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[str_enlace]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["https://arcadenoe.org/ficha-"+str_idMascota]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:GoBack Browser="{x:Null}" DisplayName="Go Back" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="GoBack_1" />
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object () {str_nombre, str_sexo, str_raza, str_edad, str_tamaño, str_historia, str_enlace}]" DataTable="[dt_datosMascotas]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="479,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                    <Assign sap:VirtualizedContainerService.HintSize="479,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[int_contador]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[int_contador + 1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ui:InterruptibleWhile.Body>
+                <ui:InterruptibleWhile.Condition>
+                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="int_contador&lt;11" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                </ui:InterruptibleWhile.Condition>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="470,57" sap2010:WorkflowViewState.IdRef="MaximizeWindow_2" />
-                <Assign sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="Assign_3">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Int32">[contador]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Int32">1</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[contador&lt;11]" DisplayName="While" sap:VirtualizedContainerService.HintSize="470,1860" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
-                  <ui:InterruptibleWhile.Body>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,1730" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://arcadenoe.or...'" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
-                        <ui:Click.CursorPosition>
-                          <ui:CursorPosition Position="Center">
-                            <ui:CursorPosition.OffsetX>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:CursorPosition.OffsetX>
-                            <ui:CursorPosition.OffsetY>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:CursorPosition.OffsetY>
-                          </ui:CursorPosition>
-                        </ui:Click.CursorPosition>
-                        <ui:Click.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4eac3f75-cee9-4ce2-8964-ad104b6abe97" InformativeScreenshot="c43dcdbde581937cc8a24c755295f8c8" Selector="[string.Format(&quot;&lt;webctrl aria-role='button' tag='A' idx='{0}' /&gt;&quot;, contador)]">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:Click.Target>
-                      </ui:Click>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="OBTENER NOMBRE" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="GetValue_3">
-                        <ui:GetValue.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f141491b-bc35-4ef6-b9c8-f0bfd680d09f" InformativeScreenshot="07ee712e307d4f59f64078af177f4c39" Selector="&lt;html app='chrome.exe' idx='*' /&gt;&lt;webctrl parentid='ficha_animal' tag='SPAN' idx='3' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetValue.Target>
-                        <ui:GetValue.Value>
-                          <OutArgument x:TypeArguments="x:String">[nombre]</OutArgument>
-                        </ui:GetValue.Value>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:GetValue>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="OBTENER SEXO" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="GetValue_4">
-                        <ui:GetValue.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f141491b-bc35-4ef6-b9c8-f0bfd680d09f" InformativeScreenshot="bb188c5fcae878b6cb2f82ec9c5a245f" Selector="&lt;html app='chrome.exe' idx='*' /&gt;&lt;webctrl parentid='ficha_animal' tag='SPAN' idx='6' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetValue.Target>
-                        <ui:GetValue.Value>
-                          <OutArgument x:TypeArguments="x:String">[sexo]</OutArgument>
-                        </ui:GetValue.Value>
-                      </ui:GetValue>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="OBTENER RAZA" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="GetValue_5">
-                        <ui:GetValue.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f141491b-bc35-4ef6-b9c8-f0bfd680d09f" InformativeScreenshot="582d67afd32fa31810e23be3754f96f2" Selector="&lt;html app='chrome.exe' idx='*' /&gt;&lt;webctrl parentid='ficha_animal' tag='SPAN' idx='9' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetValue.Target>
-                        <ui:GetValue.Value>
-                          <OutArgument x:TypeArguments="x:String">[raza]</OutArgument>
-                        </ui:GetValue.Value>
-                      </ui:GetValue>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="OBTENER EDAD" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="GetValue_6">
-                        <ui:GetValue.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f141491b-bc35-4ef6-b9c8-f0bfd680d09f" InformativeScreenshot="2fffc932f2356b1dc8a09cacfafbeb67" Selector="&lt;html app='chrome.exe' idx='*' /&gt;&lt;webctrl parentid='ficha_animal' tag='SPAN' idx='7' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetValue.Target>
-                        <ui:GetValue.Value>
-                          <OutArgument x:TypeArguments="x:String">[edad]</OutArgument>
-                        </ui:GetValue.Value>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:GetValue>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="OBTENER TAMAÑO" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="GetValue_7">
-                        <ui:GetValue.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f141491b-bc35-4ef6-b9c8-f0bfd680d09f" InformativeScreenshot="9b575162b53f39f740e2753fc4ad25c8" Selector="&lt;html app='chrome.exe' idx='*' /&gt;&lt;webctrl parentid='ficha_animal' tag='SPAN' idx='10' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetValue.Target>
-                        <ui:GetValue.Value>
-                          <OutArgument x:TypeArguments="x:String">[tamaño]</OutArgument>
-                        </ui:GetValue.Value>
-                      </ui:GetValue>
-                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="OBTENER HISTORIA" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="GetValue_8">
-                        <ui:GetValue.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f141491b-bc35-4ef6-b9c8-f0bfd680d09f" InformativeScreenshot="5cdecd8dc08b67866ee1133c3e55dbdb" Selector="&lt;webctrl class='col-md-12' parentid='ficha_animal' tag='DIV' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:GetValue.Target>
-                        <ui:GetValue.Value>
-                          <OutArgument x:TypeArguments="x:String">[historia]</OutArgument>
-                        </ui:GetValue.Value>
-                      </ui:GetValue>
-                      <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="text" DisplayName="Get Attribute 'editable text'" sap:VirtualizedContainerService.HintSize="434,235" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
-                        <ui:GetAttribute.Result>
-                          <OutArgument x:TypeArguments="x:String">[enlace]</OutArgument>
-                        </ui:GetAttribute.Result>
-                        <ui:GetAttribute.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c9ebe7c7-f632-4312-9a5a-a05d6589e505" InformativeScreenshot="d9de3929455974edec60ac9d65a9fd59" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Arca de Noé - Ficha de *' /&gt;&lt;ctrl name='Arca de Noé - Ficha de *' role='pane' /&gt;&lt;ctrl name='Barra de direcciones y de búsqueda' role='editable text' text='arcadenoe.org/ficha-*' /&gt;" WaitForReady="COMPLETE">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                          </ui:Target>
-                        </ui:GetAttribute.Target>
-                      </ui:GetAttribute>
-                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button  Atrás'" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
-                        <ui:Click.CursorPosition>
-                          <ui:CursorPosition Position="Center">
-                            <ui:CursorPosition.OffsetX>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:CursorPosition.OffsetX>
-                            <ui:CursorPosition.OffsetY>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:CursorPosition.OffsetY>
-                          </ui:CursorPosition>
-                        </ui:Click.CursorPosition>
-                        <ui:Click.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="178ff7f2-2961-4058-a469-2668d873e6aa" InformativeScreenshot="4506a5194ad8f331e703558c7eb4a42f" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Arca de Noé - Ficha de * - Google Chrome' /&gt;&lt;ctrl name='Arca de Noé - Ficha de * - Google Chrome' role='pane' /&gt;&lt;ctrl name='Atrás' role='push button' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:Click.Target>
-                      </ui:Click>
-                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object () {nombre, sexo, raza, edad, tamaño, historia, enlace}]" DataTable="[datosMascotas]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                      <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_4">
-                        <Assign.To>
-                          <OutArgument x:TypeArguments="x:Int32">[contador]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="x:Int32">[contador + 1]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                    </Sequence>
-                  </ui:InterruptibleWhile.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:InterruptibleWhile>
-                <ui:OutputDataTable DataTable="[datosMascotas]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="470,112" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[extraccionDatos]" />
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="470,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[extraccionDatos]" />
-                <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[datosMascotas]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="470,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" WorkbookPath="Modules\Prueba datatable.xlsx" />
-              </Sequence>
-            </ActivityAction>
-          </ui:BrowserScope.Body>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </ui:BrowserScope>
-      </Sequence>
+              </ui:InterruptibleWhile>
+              <ui:OutputDataTable DataTable="[dt_datosMascotas]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="515,112" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[str_extraccionDatos]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="515,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[str_extraccionDatos]" />
+              <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_datosMascotas]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="515,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Mascotas" WorkbookPath="Output\Excel\Mascotas.xlsx" />
+            </Sequence>
+          </ActivityAction>
+        </ui:BrowserScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:BrowserScope>
     </Sequence>
   </Sequence>
 </Activity>
