@@ -101,7 +101,7 @@
             </ActivityAction.Argument>
             <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,343" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
-                <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dic_filtros" />
+                <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dic_filtrosBusqueda" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -110,21 +110,21 @@
               </sap:WorkflowViewStateService.ViewState>
               <Assign sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_1">
                 <Assign.To>
-                  <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dic_filtros]</OutArgument>
+                  <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dic_filtrosBusqueda]</OutArgument>
                 </Assign.To>
                 <Assign.Value>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" xml:space="preserve">[New Dictionary(Of String, String) From {
-    {"Tipo_mascota", "Perro"},
-    {"Sexo", "Hembra"},
-	{"Edad", "Cachorrito"},
-	{"Tamaño", "Grande"}
+    {"Tipo_mascota", "Gato"},
+    {"Sexo", "Macho"},
+	{"Edad", ""},
+	{"Tamaño", ""}
 }]</InArgument>
                 </Assign.Value>
               </Assign>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="UsoFiltrosChatGPT - Invoke Workflow File (Modules\UsoFiltrosChatGPT.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\UsoFiltrosChatGPT.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dic_filtros">[dic_filtros]</InArgument>
                   <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_bro_ArcadeNoe">[bro_test]</InOutArgument>
+                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dic_filtrosBusqueda" />
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </Sequence>
