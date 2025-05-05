@@ -96,13 +96,13 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="1006,1793" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="940,1322" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="554,1770" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="486,1299" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="ien_queueItems" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_correos" />
@@ -112,7 +112,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Elimino Items Cola A New Previos" sap:VirtualizedContainerService.HintSize="520,614" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <Sequence DisplayName="Elimino Items Cola A New Previos" sap:VirtualizedContainerService.HintSize="452,614" sap2010:WorkflowViewState.IdRef="Sequence_12">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -133,7 +133,7 @@
           </ui:InterruptibleDoWhile.Body>
         </ui:InterruptibleDoWhile>
       </Sequence>
-      <Sequence sap2010:Annotation.AnnotationText="Invocamos al módulo que permite leer los nuevos correos recibidos en la cuenta de Gmail." DisplayName="Leer los correos de Gmail" sap:VirtualizedContainerService.HintSize="520,302" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence sap2010:Annotation.AnnotationText="Invocamos al módulo que permite leer los nuevos correos recibidos en la cuenta de Gmail." DisplayName="Leer los correos de Gmail" sap:VirtualizedContainerService.HintSize="452,302" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -146,7 +146,7 @@
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
       </Sequence>
-      <Sequence DisplayName="Añado DataTable a Cola" sap:VirtualizedContainerService.HintSize="520,309" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence DisplayName="Añado DataTable a Cola" sap:VirtualizedContainerService.HintSize="452,300" sap2010:WorkflowViewState.IdRef="Sequence_6">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -154,38 +154,6 @@
         </sap:WorkflowViewStateService.ViewState>
         <ui:BulkAddQueueItems TimeoutMS="{x:Null}" DisplayName="Bulk Add Queue Items" FolderPath="[In_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,217" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_2" QueueItemsDataTable="[dt_correos]" QueueName="[In_Config(&quot;OrchestratorQueueName&quot;).ToString]" />
       </Sequence>
-      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="520,462" sap2010:WorkflowViewState.IdRef="CommentOut_6">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="484,360" sap2010:WorkflowViewState.IdRef="Sequence_14">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Añado Item a Cola" sap:VirtualizedContainerService.HintSize="450,300" sap2010:WorkflowViewState.IdRef="Sequence_10">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="[In_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_4" ItemInformationCollection="[new System.Collections.Generic.Dictionary(Of System.String, System.Object) From {  }]" Priority="Normal" QueueType="[In_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="2">
-                <ui:AddQueueItem.ItemInformation>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="Edad">[30]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Nombre">Maria</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="Correo">alicia.lopez.rpa@gmail.com</InArgument>
-                </ui:AddQueueItem.ItemInformation>
-              </ui:AddQueueItem>
-            </Sequence>
-          </Sequence>
-        </ui:CommentOut.Body>
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </ui:CommentOut>
     </Sequence>
   </Sequence>
 </Activity>
