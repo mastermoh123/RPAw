@@ -93,20 +93,20 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AccesoChatGPT" sap:VirtualizedContainerService.HintSize="1029,533.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AccesoChatGPT" sap:VirtualizedContainerService.HintSize="1023,3425" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Acceso a ChatGPT" sap:VirtualizedContainerService.HintSize="450,162" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Acceso a ChatGPT" sap:VirtualizedContainerService.HintSize="644,3402" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" sap2010:Annotation.AnnotationText="Acceso a la web de ChatGPT" BrowserType="Chrome" DisplayName="Open Browser 'Web ChatGPT'" sap:VirtualizedContainerService.HintSize="416,79" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="False" UiBrowser="[out_bro_accesoChatGPT]" Url="[in_str_URLChatGPT]">
+      <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" sap2010:Annotation.AnnotationText="Acceso a la web de ChatGPT" BrowserType="Chrome" DisplayName="Open Browser 'Web ChatGPT'" sap:VirtualizedContainerService.HintSize="610,3319" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="False" UiBrowser="[out_bro_accesoChatGPT]" Url="[in_str_URLChatGPT]">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -353,7 +353,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:UiElementExists DisplayName="Element Exists 'Cuadro de prompt'" Exists="[boo_elementoExiste]" sap:VirtualizedContainerService.HintSize="434,139" sap2010:WorkflowViewState.IdRef="UiElementExists_18">
                                   <ui:UiElementExists.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d02c34aa-59a3-4111-baaa-a61a890dab4c" InformativeScreenshot="17258f4db9d9472362ab7bd2425c6e92" Selector="&lt;webctrl tag='P' parentid='prompt-textarea' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d02c34aa-59a3-4111-baaa-a61a890dab4c" InformativeScreenshot="17258f4db9d9472362ab7bd2425c6e92" Selector="&lt;webctrl tag='P' parentid='prompt-textarea' /&gt;" TimeoutMS="1500" WaitForReady="COMPLETE" />
                                   </ui:UiElementExists.Target>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -449,7 +449,7 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
