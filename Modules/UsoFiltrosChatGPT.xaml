@@ -2,7 +2,8 @@
   <x:Members>
     <x:Property Name="io_bro_ArcadeNoe" Type="InOutArgument(ui:Browser)" />
     <x:Property Name="in_dic_filtrosBusqueda" Type="InArgument(scg:Dictionary(x:String, x:String))" />
-    <x:Property Name="ou_booHayResultados" Type="InArgument(x:Boolean)" />
+    <x:Property Name="ou_booHayResultados" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -104,9 +105,10 @@
       <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UsoFiltrosChatGPT" sap:VirtualizedContainerService.HintSize="1023,5277" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UsoFiltrosChatGPT" sap:VirtualizedContainerService.HintSize="914,5277" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -586,6 +588,7 @@
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExtraerDatosMascotas - Invoke Workflow File (Modules\ExtraerDatosMascotas.xaml)" sap:VirtualizedContainerService.HintSize="434,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\ExtraerDatosMascotas.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InOutArgument x:TypeArguments="ui:Browser" x:Key="io_bro_ArcadeNoe">[io_bro_ArcadeNoe]</InOutArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_1">
