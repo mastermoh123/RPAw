@@ -106,25 +106,25 @@
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UsoFiltrosChatGPT" sap:VirtualizedContainerService.HintSize="1023,4869" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UsoFiltrosChatGPT" sap:VirtualizedContainerService.HintSize="1023,5277" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Uso de los filtros en la web Arca de Noé" sap:VirtualizedContainerService.HintSize="628,4846" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Uso de los filtros en la web Arca de Noé" sap:VirtualizedContainerService.HintSize="628,5254" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_bro_ArcadeNoe]" BrowserType="Chrome" DisplayName="Attach Browser 'Arca de Noé'" sap:VirtualizedContainerService.HintSize="594,4763" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a0f2e3301b97a3a9b41ddf2fe0ef7a46" UiBrowser="[io_bro_ArcadeNoe]">
+      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_bro_ArcadeNoe]" BrowserType="Chrome" DisplayName="Attach Browser 'Arca de Noé'" sap:VirtualizedContainerService.HintSize="594,5171" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="a0f2e3301b97a3a9b41ddf2fe0ef7a46" UiBrowser="[io_bro_ArcadeNoe]">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,4593" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="560,5001" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boo_sinmascotas" />
               </Sequence.Variables>
@@ -135,12 +135,12 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="526,57" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-              <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Se comprueba el tipo de mascota a seleccionar y se hace clic en la seccion correspondiente, según si se trata de Perro, Gato o Animal exótico." Condition="[in_dic_filtrosBusqueda.ContainsValue(&quot;Perro&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="526,841" sap2010:WorkflowViewState.IdRef="IfElseIfV2_2">
+              <ui:IfElseIfV2 sap2010:Annotation.AnnotationText="Se comprueba el tipo de mascota a seleccionar y se hace clic en la seccion correspondiente, según si se trata de Perro, Gato o Animal exótico." Condition="[in_dic_filtrosBusqueda.ContainsValue(&quot;Perro&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="526,1185" sap2010:WorkflowViewState.IdRef="IfElseIfV2_3">
                 <ui:IfElseIfV2.Else>
-                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -150,7 +150,7 @@
                   <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                     <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_dic_filtrosBusqueda.ContainsValue(&quot;Gato&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
                       <ui:IfElseIfBlock.Then>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,165" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,247" sap2010:WorkflowViewState.IdRef="Sequence_10">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -164,7 +164,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:LogMessage>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="2000" DisplayName="Click 'Sección gatos'" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="2000" DisplayName="Click 'Sección gatos'" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -184,7 +184,7 @@
                             </ui:Click.Target>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -194,21 +194,21 @@
                     </ui:IfElseIfBlock>
                     <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_dic_filtrosBusqueda.ContainsValue(&quot;Animal exótico&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_5">
                       <ui:IfElseIfBlock.Then>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,165" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,363" sap2010:WorkflowViewState.IdRef="Sequence_19">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Accediendo a la sección....&quot; + vbcr + &quot;Tipo mascota: &quot; &amp; in_dic_filtrosBusqueda(&quot;Tipo_mascota&quot;)]">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Accediendo a la sección....&quot; + vbcr + &quot;Tipo mascota: &quot; &amp; in_dic_filtrosBusqueda(&quot;Tipo_mascota&quot;)]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:LogMessage>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="2000" DisplayName="Click 'Sección animal exótico'" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="2000" DisplayName="Click 'Sección animal exótico'" sap:VirtualizedContainerService.HintSize="382,130" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -228,7 +228,7 @@
                             </ui:Click.Target>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -288,7 +288,7 @@
                   </Sequence>
                 </ui:IfElseIfV2.Then>
               </ui:IfElseIfV2>
-              <If sap2010:Annotation.AnnotationText="Se verifica si existe algún filtro adicional que aplicar (sexo, edad o tamaño).&#xA;- En caso afirmativo, se itera por el diccionario para luego hacer clic en el filtro correspondiente y seleccionar entre las opciónes disponibles. &#xA;- En caso negativo, se muestra en el panel de output que no existen filtros que aplicar." Condition="[in_dic_filtrosBusqueda(&quot;Sexo&quot;) &lt;&gt; &quot;&quot; OrElse&#xA;in_dic_filtrosBusqueda(&quot;Edad&quot;) &lt;&gt; &quot;&quot; OrElse&#xA;in_dic_filtrosBusqueda(&quot;Tamaño&quot;) &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="526,2355" sap2010:WorkflowViewState.IdRef="If_7">
+              <If sap2010:Annotation.AnnotationText="Se verifica si existe algún filtro adicional que aplicar (sexo, edad o tamaño).&#xA;- En caso afirmativo, se itera por el diccionario para luego hacer clic en el filtro correspondiente y seleccionar entre las opciónes disponibles. &#xA;- En caso negativo, se muestra en el panel de output que no existen filtros que aplicar." Condition="[in_dic_filtrosBusqueda(&quot;Sexo&quot;) &lt;&gt; &quot;&quot; OrElse&#xA;in_dic_filtrosBusqueda(&quot;Edad&quot;) &lt;&gt; &quot;&quot; OrElse&#xA;in_dic_filtrosBusqueda(&quot;Tamaño&quot;) &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="526,2419" sap2010:WorkflowViewState.IdRef="If_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -297,26 +297,26 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="524,1921" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="524,1985" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each filtros" sap:VirtualizedContainerService.HintSize="490,1813" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_dic_filtrosBusqueda]">
+                    <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each filtros" sap:VirtualizedContainerService.HintSize="490,1877" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_dic_filtrosBusqueda]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)" Name="filtros" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="488,1683" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="488,1747" sap2010:WorkflowViewState.IdRef="Sequence_22">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If sap2010:Annotation.AnnotationText="Se usa una condición para verificar que el valor de cada clave no es ni nulo, ni cadena vacía y, en función de ello, se ejecutan distintos flujos según los casos." Condition="[Not String.IsNullOrWhiteSpace(filtros.Value)]" sap:VirtualizedContainerService.HintSize="454,1623" sap2010:WorkflowViewState.IdRef="If_6">
+                            <If sap2010:Annotation.AnnotationText="Se usa una condición para verificar que el valor de cada clave no es ni nulo, ni cadena vacía y, en función de ello, se ejecutan distintos flujos según los casos." Condition="[Not String.IsNullOrWhiteSpace(filtros.Value)]" sap:VirtualizedContainerService.HintSize="454,1687" sap2010:WorkflowViewState.IdRef="If_6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -497,10 +497,10 @@
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="452,25" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="452,89" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>

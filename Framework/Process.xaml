@@ -539,7 +539,7 @@
                           </Assign.Value>
                         </Assign>
                         <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="524,122" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Establecemos una espera activa programada para asegurar que se recupera correctamente la respuesta de ChatGPT." DisplayName="While - Espera programada para recuperar la respuesta" sap:VirtualizedContainerService.HintSize="524,1737" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+                        <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Establecemos una espera activa programada para asegurar que se recupera correctamente la respuesta de ChatGPT." Condition="[str_json.Equals(&quot;&quot;) and not (str_json.Contains(&quot;Tipo_mascota&quot;) And str_json.Contains(&quot;Sexo&quot;) And str_json.Contains(&quot;Edad&quot;) And str_json.Contains(&quot;Tamaño&quot;)) And int_contador &lt;=10]" DisplayName="While - Espera programada para recuperar la respuesta" sap:VirtualizedContainerService.HintSize="524,1737" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                           <ui:InterruptibleWhile.Body>
                             <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="522,1565" sap2010:WorkflowViewState.IdRef="Sequence_53">
                               <sap:WorkflowViewStateService.ViewState>
@@ -774,9 +774,6 @@
                               </Assign>
                             </Sequence>
                           </ui:InterruptibleWhile.Body>
-                          <ui:InterruptibleWhile.Condition>
-                            <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="str_json.Equals(&quot;&quot;) and not (str_json.Contains(&quot;Tipo_mascota&quot;) And str_json.Contains(&quot;Sexo&quot;) And str_json.Contains(&quot;Edad&quot;) And str_json.Contains(&quot;Tamaño&quot;)) And int_contador &lt;=10" />
-                          </ui:InterruptibleWhile.Condition>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

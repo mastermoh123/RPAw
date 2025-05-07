@@ -109,7 +109,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="RPAw&#xA;Automatización del proceso de adopción de mascotas en la web Arca de Noé" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="946,491.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="RPAw&#xA;Automatización del proceso de adopción de mascotas en la web Arca de Noé" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="1029,533.04" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -772,9 +772,9 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="200,102" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="500,2473" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <Sequence sap:VirtualizedContainerService.HintSize="454,2330" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                <Sequence sap:VirtualizedContainerService.HintSize="454,2328" sap2010:WorkflowViewState.IdRef="Sequence_42">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -782,9 +782,9 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                   <ui:Comment sap:VirtualizedContainerService.HintSize="420,203" sap2010:WorkflowViewState.IdRef="Comment_7" Text="SE CIERRAN LOS APLICATIVOS&#xA;&#xA;PUEDE SER: &#xA;&#xA;- LOGOUT Y CIERRE CON CLOSE TAB&#xA;&#xA;- CERRAR LA APLICACION CON CLOSE APPLICATION " />
                                   <ui:Comment sap:VirtualizedContainerService.HintSize="420,145" sap2010:WorkflowViewState.IdRef="Comment_11" Text="Gestionamos business de Init. Al modulo de gestión de business le pasamos como argumento la variable BusinessExceptionInit, no la general." />
-                                  <If Condition="[BusinessExceptionInit is Nothing]" sap:VirtualizedContainerService.HintSize="420,457" sap2010:WorkflowViewState.IdRef="If_15">
+                                  <If Condition="[BusinessExceptionInit is Nothing]" sap:VirtualizedContainerService.HintSize="420,455" sap2010:WorkflowViewState.IdRef="If_15">
                                     <If.Then>
-                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,91" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_44">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -822,7 +822,8 @@
                                     <TryCatch.Try>
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseAllApplications workflow" sap:VirtualizedContainerService.HintSize="418,145" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Framework\CloseAllApplications.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
-                                          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                          <InArgument x:TypeArguments="ui:Browser" x:Key="in_bro_ChatGPT">[bro_accesoChatGPT]</InArgument>
+                                          <InArgument x:TypeArguments="ui:Browser" x:Key="in_bro_ArcadeNoe">[bro_accesoArcadeNoe]</InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
                                     </TryCatch.Try>
