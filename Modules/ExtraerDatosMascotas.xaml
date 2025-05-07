@@ -112,25 +112,18 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="1023,5555" sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="str_selectorMascota" />
-    </Sequence.Variables>
+  <Sequence DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="914,5936" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Módulo que extrae los datos de las mascotas coincidentes con los filtros especificados en la búsqueda, los almacena en un DataTable y posteriormente los escribe en un excel." DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="624,5532" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="Módulo que extrae los datos de las mascotas coincidentes con los filtros especificados en la búsqueda, los almacena en un DataTable y posteriormente los escribe en un excel." DisplayName="ExtraerDatosMascotas" sap:VirtualizedContainerService.HintSize="624,5913" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Int32" Name="int_count" />
         <Variable x:TypeArguments="x:String" Name="str_listaMascotas" />
         <Variable x:TypeArguments="scg:List(x:String)" Name="lst_tarjetasDatos" />
-        <Variable x:TypeArguments="x:Int32" Name="int_contador">
-          <Variable.Default>
-            <Literal x:TypeArguments="x:Int32" Value="1" />
-          </Variable.Default>
-        </Variable>
+        <Variable x:TypeArguments="x:Int32" Default="1" Name="int_contador" />
         <Variable x:TypeArguments="x:String" Name="str_nombre" />
         <Variable x:TypeArguments="x:String" Name="str_sexo" />
         <Variable x:TypeArguments="x:String" Name="str_raza" />
@@ -148,13 +141,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:BuildDataTable DataTable="[dt_datosMascotas]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="590,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Nombre&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Sexo&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Raza&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Edad&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Tamaño&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Historia&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Enlace&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_bro_ArcadeNoe]" BrowserType="Chrome" DisplayName="Attach Browser 'Arca de Noé'" sap:VirtualizedContainerService.HintSize="590,5315" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ed1caa3781f8e02fd53818a3cb7fde0a" UiBrowser="[io_bro_ArcadeNoe]">
+      <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[io_bro_ArcadeNoe]" BrowserType="Chrome" DisplayName="Attach Browser 'Arca de Noé'" sap:VirtualizedContainerService.HintSize="590,5696" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="ed1caa3781f8e02fd53818a3cb7fde0a" UiBrowser="[io_bro_ArcadeNoe]">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="556,5145" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="556,5526" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="boo_sinmascotas" />
                 <Variable x:TypeArguments="x:String" Name="str_extraccionDatos" />
@@ -305,13 +298,14 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
               </Sequence>
-              <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="522,3513" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+              <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="522,3894" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
                 <ui:InterruptibleWhile.Body>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="520,3383" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="520,3764" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="str_idMascota" />
                       <Variable x:TypeArguments="x:String" Name="str_selectorMascota" />
                       <Variable x:TypeArguments="x:String" Name="strTotalMascotas" />
+                      <Variable x:TypeArguments="x:String" Name="str_nombreWorkflow" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -500,7 +494,7 @@
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="77f2733f-5fdc-4b32-9a03-8b58e22cd4e0" InformativeScreenshot="f3573eb9d37d92fd2a91c6033c16df65" Selector="&lt;html app='chrome.exe' title='Arca de Noé*' /&gt;&lt;webctrl parentid='ficha_animal' parentclass='ficha_sexo' idx='2' /&gt;" TimeoutMS="2000" WaitForReady="COMPLETE" />
                       </ui:GetAttribute.Target>
                     </ui:GetAttribute>
-                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Raza'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_7">
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Raza'" sap:VirtualizedContainerService.HintSize="486,235" sap2010:WorkflowViewState.IdRef="GetAttribute_7">
                       <ui:GetAttribute.Result>
                         <OutArgument x:TypeArguments="x:String">[str_raza]</OutArgument>
                       </ui:GetAttribute.Result>
@@ -515,7 +509,7 @@
                         </ui:Target>
                       </ui:GetAttribute.Target>
                     </ui:GetAttribute>
-                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Edad'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_8">
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Edad'" sap:VirtualizedContainerService.HintSize="486,235" sap2010:WorkflowViewState.IdRef="GetAttribute_8">
                       <ui:GetAttribute.Result>
                         <OutArgument x:TypeArguments="x:String">[str_edad]</OutArgument>
                       </ui:GetAttribute.Result>
@@ -530,7 +524,7 @@
                         </ui:Target>
                       </ui:GetAttribute.Target>
                     </ui:GetAttribute>
-                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Tamaño'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_9">
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Tamaño'" sap:VirtualizedContainerService.HintSize="486,235" sap2010:WorkflowViewState.IdRef="GetAttribute_9">
                       <ui:GetAttribute.Result>
                         <OutArgument x:TypeArguments="x:String">[str_tamaño]</OutArgument>
                       </ui:GetAttribute.Result>
@@ -545,7 +539,7 @@
                         </ui:Target>
                       </ui:GetAttribute.Target>
                     </ui:GetAttribute>
-                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Historia'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_10">
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innerText" DisplayName="Get Attribute 'Historia'" sap:VirtualizedContainerService.HintSize="486,235" sap2010:WorkflowViewState.IdRef="GetAttribute_10">
                       <ui:GetAttribute.Result>
                         <OutArgument x:TypeArguments="x:String">[str_historia]</OutArgument>
                       </ui:GetAttribute.Result>
@@ -560,7 +554,7 @@
                         </ui:Target>
                       </ui:GetAttribute.Target>
                     </ui:GetAttribute>
-                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innertext" DisplayName="Get Attribute 'Id mascota'" sap:VirtualizedContainerService.HintSize="479,235" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
+                    <ui:GetAttribute ContinueOnError="{x:Null}" Attribute="innertext" DisplayName="Get Attribute 'Id mascota'" sap:VirtualizedContainerService.HintSize="486,235" sap2010:WorkflowViewState.IdRef="GetAttribute_4">
                       <ui:GetAttribute.Result>
                         <OutArgument x:TypeArguments="x:String">[str_idMascota]</OutArgument>
                       </ui:GetAttribute.Result>
@@ -575,7 +569,28 @@
                         </ui:Target>
                       </ui:GetAttribute.Target>
                     </ui:GetAttribute>
-                    <Assign sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,381" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,270" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Con esta actividad &quot;Invoke Workflow File&quot; Invoco el .xaml de &quot;LeerPDFs.xaml&quot; :D" DisplayName="LeerPDFs - Invoke Workflow File (\Modules\LeerPDFs.xaml)" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\LeerPDFs.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <OutArgument x:TypeArguments="x:String" x:Key="out_strNombre">[str_nombreWorkflow]</OutArgument>
+                            </ui:InvokeWorkflowFile.Arguments>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:InvokeWorkflowFile>
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                    </ui:CommentOut>
+                    <Assign sap:VirtualizedContainerService.HintSize="486,114" sap2010:WorkflowViewState.IdRef="Assign_5">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[str_enlace]</OutArgument>
                       </Assign.To>
@@ -583,9 +598,9 @@
                         <InArgument x:TypeArguments="x:String">["https://arcadenoe.org/ficha-"+str_idMascota]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:GoBack Browser="{x:Null}" DisplayName="Go Back" sap:VirtualizedContainerService.HintSize="479,57" sap2010:WorkflowViewState.IdRef="GoBack_1" />
-                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object () {str_nombre, str_sexo, str_raza, str_edad, str_tamaño, str_historia, str_enlace}]" DataTable="[dt_datosMascotas]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="479,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                    <Assign sap:VirtualizedContainerService.HintSize="479,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <ui:GoBack Browser="{x:Null}" DisplayName="Go Back" sap:VirtualizedContainerService.HintSize="486,57" sap2010:WorkflowViewState.IdRef="GoBack_1" />
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object () {str_nombre, str_sexo, str_raza, str_edad, str_tamaño, str_historia, str_enlace}]" DataTable="[dt_datosMascotas]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="486,218" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                    <Assign sap:VirtualizedContainerService.HintSize="486,105" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[int_contador]</OutArgument>
                       </Assign.To>
@@ -605,9 +620,9 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InterruptibleWhile>
-              <ui:OutputDataTable DataTable="[dt_datosMascotas]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="515,112" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[str_extraccionDatos]" />
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="515,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[str_extraccionDatos]" />
-              <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_datosMascotas]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="515,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Mascotas" WorkbookPath="Output\Excel\Mascotas.xlsx" />
+              <ui:OutputDataTable DataTable="[dt_datosMascotas]" DisplayName="Output Data Table as Text" sap:VirtualizedContainerService.HintSize="522,112" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[str_extraccionDatos]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="522,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[str_extraccionDatos]" />
+              <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_datosMascotas]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="522,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Mascotas" WorkbookPath="Output\Excel\Mascotas.xlsx" />
             </Sequence>
           </ActivityAction>
         </ui:BrowserScope.Body>
