@@ -2,9 +2,9 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_broAccesoChatGPT" Type="InArgument(ui:Browser)" />
     <x:Property Name="io_intContador" Type="InArgument(x:Int32)" />
     <x:Property Name="io_bro_ArcadeNoe" Type="InOutArgument(ui:Browser)" />
+    <x:Property Name="io_broAccesoChatGPT" Type="InOutArgument(ui:Browser)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -140,7 +140,12 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="914,10164" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="914,10870" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_correo" />
       <Variable x:TypeArguments="s:Exception" Name="sys_errorSystem" />
@@ -157,7 +162,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="ObtenerDatosTransaccion" sap:VirtualizedContainerService.HintSize="830,8679" sap2010:WorkflowViewState.IdRef="Sequence_30">
+    <Sequence DisplayName="ObtenerDatosTransaccion" sap:VirtualizedContainerService.HintSize="830,9122" sap2010:WorkflowViewState.IdRef="Sequence_30">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="str_remitente" />
         <Variable x:TypeArguments="x:String" Name="str_fecha" />
@@ -215,19 +220,19 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:MultipleAssign>
-      <Sequence DisplayName="Acceso a la web de Chat GPT para consultas" sap:VirtualizedContainerService.HintSize="796,8142" sap2010:WorkflowViewState.IdRef="Sequence_25">
+      <Sequence DisplayName="Acceso a la web de Chat GPT para consultas" sap:VirtualizedContainerService.HintSize="796,8585" sap2010:WorkflowViewState.IdRef="Sequence_25">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:BrowserScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[in_broAccesoChatGPT]" BrowserType="Chrome" DisplayName="Attach Browser 'Web Chat GPT en Chrome'" sap:VirtualizedContainerService.HintSize="762,8059" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="7546d2e8b9678d2d663523508e675279" Selector="&lt;html app='chrome.exe' /&gt;">
+        <ui:BrowserScope SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" Browser="[io_broAccesoChatGPT]" BrowserType="Chrome" DisplayName="Attach Browser 'Web Chat GPT en Chrome'" sap:VirtualizedContainerService.HintSize="762,8502" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="7546d2e8b9678d2d663523508e675279">
           <ui:BrowserScope.Body>
             <ActivityAction x:TypeArguments="x:Object">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="728,7889" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="728,8332" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="str_prompt" />
                 </Sequence.Variables>
@@ -237,10 +242,10 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Pasamos el prompt a ChatGPT." DisplayName="Consulta a Chat GPT" sap:VirtualizedContainerService.HintSize="694,88" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence sap2010:Annotation.AnnotationText="Pasamos el prompt a ChatGPT." DisplayName="Consulta a Chat GPT" sap:VirtualizedContainerService.HintSize="694,358" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                     </scg:Dictionary>
@@ -389,7 +394,7 @@
                     </If.Else>
                   </If>
                 </Sequence>
-                <Sequence DisplayName="Obtenemos los resultados" sap:VirtualizedContainerService.HintSize="694,7091" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <Sequence DisplayName="Obtenemos los resultados" sap:VirtualizedContainerService.HintSize="694,7264" sap2010:WorkflowViewState.IdRef="Sequence_18">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="boo_existeElemento" />
                   </Sequence.Variables>
@@ -447,7 +452,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InterruptibleDoWhile>
-                  <If Condition="[boo_existeElemento]" DisplayName="If - Evaluamos si existe un cuadro de respuesta" sap:VirtualizedContainerService.HintSize="660,6429" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If Condition="[boo_existeElemento]" DisplayName="If - Evaluamos si existe un cuadro de respuesta" sap:VirtualizedContainerService.HintSize="660,6602" sap2010:WorkflowViewState.IdRef="If_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -455,7 +460,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="658,5954" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="658,6127" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="str_tipoMascota" />
                           <Variable x:TypeArguments="x:String" Name="str_sexo" />
@@ -615,7 +620,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InterruptibleWhile>
-                        <If sap2010:Annotation.AnnotationText="Si la respuesta es distinta de &quot;No es válido&quot;. Debe ser el diccionario con los criterios buscados." Condition="[not str_json.Trim.Equals(&quot;&quot;) and not str_json.ToLower.Contains(&quot;no es válido&quot;)]" DisplayName="If - Evaluamos si la respuesta es &quot;No es válido&quot;" sap:VirtualizedContainerService.HintSize="624,4035" sap2010:WorkflowViewState.IdRef="If_6">
+                        <If sap2010:Annotation.AnnotationText="Si la respuesta es distinta de &quot;No es válido&quot;. Debe ser el diccionario con los criterios buscados." Condition="[not str_json.Trim.Equals(&quot;&quot;) and not str_json.ToLower.Contains(&quot;no es válido&quot;)]" DisplayName="If - Evaluamos si la respuesta es &quot;No es válido&quot;" sap:VirtualizedContainerService.HintSize="624,4208" sap2010:WorkflowViewState.IdRef="If_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -624,7 +629,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="622,3651" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="622,3824" sap2010:WorkflowViewState.IdRef="Sequence_31">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="str_edad" />
                               </Sequence.Variables>
@@ -633,7 +638,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Extracción de los filtros mediante regex" sap:VirtualizedContainerService.HintSize="588,3591" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                              <Sequence DisplayName="Extracción de los filtros mediante regex" sap:VirtualizedContainerService.HintSize="588,3764" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:Boolean" Name="boo_hayResultados" />
                                 </Sequence.Variables>
@@ -828,7 +833,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:InvokeWorkflowFile>
-                                <If Condition="[boo_hayResultados]" DisplayName="If - Comprobamos si hemos obtenido o no resultados en la búsqueda" sap:VirtualizedContainerService.HintSize="554,2382" sap2010:WorkflowViewState.IdRef="If_13">
+                                <If Condition="[boo_hayResultados]" DisplayName="If - Comprobamos si hemos obtenido o no resultados en la búsqueda" sap:VirtualizedContainerService.HintSize="554,2555" sap2010:WorkflowViewState.IdRef="If_13">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -923,13 +928,13 @@
                                     </Sequence>
                                   </If.Then>
                                   <If.Else>
-                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="552,928" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="552,1101" sap2010:WorkflowViewState.IdRef="Sequence_55">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <TryCatch sap2010:Annotation.AnnotationText="Generamos un excepción de negocio para SL-02, la capturamos, la relanzamos y la tratamos en el módulo &quot;GestionarBusiness&quot;." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="518,868" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                      <TryCatch sap2010:Annotation.AnnotationText="Generamos un excepción de negocio para SL-02, la capturamos, la relanzamos y la tratamos en el módulo &quot;GestionarBusiness&quot;." DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="518,1041" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -953,7 +958,7 @@
                                               <ActivityAction.Argument>
                                                 <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                                               </ActivityAction.Argument>
-                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,399" sap2010:WorkflowViewState.IdRef="Sequence_76">
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,572" sap2010:WorkflowViewState.IdRef="Sequence_76">
                                                 <Sequence.Variables>
                                                   <Variable x:TypeArguments="ui:BusinessRuleException" Name="businessError" />
                                                 </Sequence.Variables>
@@ -962,6 +967,7 @@
                                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[in_Config(&quot;SL-02&quot;).ToString]" />
                                                 <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_32">
                                                   <Assign.To>
                                                     <OutArgument x:TypeArguments="ui:BusinessRuleException">[businessError]</OutArgument>
@@ -1030,52 +1036,38 @@
         </ui:BrowserScope>
       </Sequence>
     </Sequence>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="830,183" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Nuestras dos variables que almacenan error de sistema y de negocio, respectivamente, al entrar en el Process las ponemos a Nothing por si almacenan el error de un elemento de cola anterior, las limpiamos y empezamos de nuevo" />
-    <Assign sap:VirtualizedContainerService.HintSize="830,114" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign sap2010:Annotation.AnnotationText="Variable que almacena un error de sistema.&#xD;&#xA;La inicializamos a Nothing por si almacena el error de un elemento de la cola anterior." sap:VirtualizedContainerService.HintSize="830,171" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="s:Exception">[sys_errorSystem]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="830,114" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap2010:Annotation.AnnotationText="Variable que almacena un error de negocio.&#xD;&#xA;La inicializamos a Nothing por si almacena el error de un elemento de la cola anterior." sap:VirtualizedContainerService.HintSize="830,171" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="ui:BusinessRuleException">[bus_errorBusiness]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="ui:BusinessRuleException">[Nothing]</InArgument>
       </Assign.Value>
-    </Assign>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="830,396" sap2010:WorkflowViewState.IdRef="Comment_3" Text="Aqui vamos a tener la siguiente estructura: &#xA;&#xA;Invoke&#xA;&#xA;If system exception: &#xA;&#xA;throw en caso de que si&#xA;&#xA;If business exception: &#xA;&#xA;gestiono excepcion &#xA;&#xA;throw en caso de que si&#xA;&#xA;Invoke &#xA;&#xA;.... y de nuevo lo mismo" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="830,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_11">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="prueba - Invoke Workflow File (Modules\prueba.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\prueba2.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <OutArgument x:TypeArguments="s:Exception" x:Key="out_errorSystem">[sys_errorSystem]</OutArgument>
-              <OutArgument x:TypeArguments="ui:BusinessRuleException" x:Key="out_errorBusiness">[bus_errorBusiness]</OutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
-    <If Condition="[sys_errorSystem is Nothing]" sap:VirtualizedContainerService.HintSize="830,57" sap2010:WorkflowViewState.IdRef="If_1">
+    </Assign>
+    <If sap2010:Annotation.AnnotationText="Si no está vacía, lanzamos una excepción de sistema." Condition="[sys_errorSystem is Nothing]" DisplayName="If - Comprobaación de la variable de error de sistema" sap:VirtualizedContainerService.HintSize="830,566" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
@@ -1099,12 +1091,12 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="830,202" sap2010:WorkflowViewState.IdRef="Comment_4" Text="En caso de que quiera gestionar cada business de una manera, por ejemplo, enviando en cada caso un email, lo hago en este módulo. Dentro tengo un if que evalua si mi business contiene el código SL-01, SL-02.... y hará lo que tenga que hacer en caso de que se de uno de ellos. " />
-    <If Condition="[bus_errorBusiness is Nothing]" sap:VirtualizedContainerService.HintSize="418,680" sap2010:WorkflowViewState.IdRef="If_2">
+    <If sap2010:Annotation.AnnotationText="Si no está vacía, llamamos al módulo donde tratamos las excepciones de negocio." Condition="[bus_errorBusiness is Nothing]" DisplayName="If - Comprobamos la variable de error de negocio" sap:VirtualizedContainerService.HintSize="830,745" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
@@ -1135,40 +1127,5 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="830,210" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="484,108" sap2010:WorkflowViewState.IdRef="Sequence_29">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="'Rescatar Navegador Acceso Chat GPT'" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Sequence_9">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:BrowserScope BrowserType="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Browser="[in_broAccesoChatGPT]" DisplayName="Attach Browser" sap:VirtualizedContainerService.HintSize="484,221" sap2010:WorkflowViewState.IdRef="BrowserScope_1" UiBrowser="[in_broAccesoChatGPT]">
-              <ui:BrowserScope.Body>
-                <ActivityAction x:TypeArguments="x:Object">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,89" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </Sequence>
-                </ActivityAction>
-              </ui:BrowserScope.Body>
-            </ui:BrowserScope>
-          </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
   </Sequence>
 </Activity>

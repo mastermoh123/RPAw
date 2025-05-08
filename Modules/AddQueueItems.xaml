@@ -96,13 +96,13 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="940,1322" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="914,1353" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="486,1299" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="AddQueueItems" sap:VirtualizedContainerService.HintSize="486,1330" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="ien_queueItems" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_correos" />
@@ -112,11 +112,12 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Elimino Items Cola A New Previos" sap:VirtualizedContainerService.HintSize="452,614" sap2010:WorkflowViewState.IdRef="Sequence_12">
+      <Sequence sap2010:Annotation.AnnotationText="Eliminamos los elementos de la cola, que aparecen como New." DisplayName="Elimino Items Cola A New Previos" sap:VirtualizedContainerService.HintSize="452,645" sap2010:WorkflowViewState.IdRef="Sequence_12">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[ien_queueItems.Count &gt; 0]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="418,522" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
@@ -133,7 +134,7 @@
           </ui:InterruptibleDoWhile.Body>
         </ui:InterruptibleDoWhile>
       </Sequence>
-      <Sequence sap2010:Annotation.AnnotationText="Invocamos al módulo que permite leer los nuevos correos recibidos en la cuenta de Gmail." DisplayName="Leer los correos de Gmail" sap:VirtualizedContainerService.HintSize="452,302" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence sap2010:Annotation.AnnotationText="Invocamos al módulo que permite leer los correos recibidos en la cuenta de Gmail." DisplayName="Leer los correos de Gmail" sap:VirtualizedContainerService.HintSize="452,302" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
