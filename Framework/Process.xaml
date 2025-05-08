@@ -1100,7 +1100,7 @@
       </If.Else>
     </If>
     <ui:Comment sap:VirtualizedContainerService.HintSize="830,202" sap2010:WorkflowViewState.IdRef="Comment_4" Text="En caso de que quiera gestionar cada business de una manera, por ejemplo, enviando en cada caso un email, lo hago en este módulo. Dentro tengo un if que evalua si mi business contiene el código SL-01, SL-02.... y hará lo que tenga que hacer en caso de que se de uno de ellos. " />
-    <If Condition="[bus_errorBusiness is Nothing]" sap:VirtualizedContainerService.HintSize="830,57" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[bus_errorBusiness is Nothing]" sap:VirtualizedContainerService.HintSize="418,680" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1124,9 +1124,11 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GestionarBusiness - Invoke Workflow File (Modules\GestionarBusiness.xaml)" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\GestionarBusiness_old.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GestionarBusiness - Invoke Workflow File (Modules\GestionarBusiness.xaml)" sap:VirtualizedContainerService.HintSize="382,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\GestionarBusiness.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="in_errorBusiness">[bus_errorBusiness]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_str_destinatarioInteresado">[in_Config("CorreoInterno").ToString]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <Throw Exception="[bus_errorBusiness]" sap:VirtualizedContainerService.HintSize="382,113" sap2010:WorkflowViewState.IdRef="Throw_2" />
